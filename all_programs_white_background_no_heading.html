@@ -5,22 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>C and 8086 Programs — One-Click Copy</title>
 <style>
-*{box-sizing:border-box}body{margin:0;padding:24px 14px;background:#f3f6fb;color:#172033;font-family:Arial,Helvetica,sans-serif}
+*{box-sizing:border-box}body{margin:0;padding:24px 14px;background:#ffffff;color:#172033;font-family:Arial,Helvetica,sans-serif}
 main{max-width:1000px;margin:auto}h1{font-size:27px;margin:0 0 8px}.intro{color:#566176;line-height:1.5;margin:0 0 22px}
 .card{background:#fff;border:1px solid #dce3ee;border-radius:13px;margin:18px 0;overflow:hidden;box-shadow:0 5px 18px #1720330a}
 header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 17px;border-bottom:1px solid #e6ebf2}
 h2{font-size:16px;line-height:1.4;margin:0}button{background:#185adb;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer;white-space:nowrap}
 button:hover{background:#1047b5}button:focus-visible{outline:3px solid #91b4ff;outline-offset:2px}
-pre{margin:0;padding:17px;overflow:auto;background:#101827;color:#e8eef9;font:13px/1.55 Consolas,"Courier New",monospace;tab-size:4}
+pre{margin:0;padding:17px;overflow:auto;background:#ffffff;color:#e8eef9;font:13px/1.55 Consolas,"Courier New",monospace;tab-size:4;border:1px solid #e5e7eb;border-radius:8px}
 .status{min-height:17px;margin:0;padding:0 17px 10px;color:#167647;font-size:13px}
 @media(max-width:600px){body{padding:16px 9px}h1{font-size:23px}header{align-items:flex-start;padding:12px}h2{font-size:14px}button{padding:9px 10px}pre{padding:13px;font-size:12px}}
+
+/* White background throughout */
+html, body, main, .card, header, pre, code { background-color: #ffffff; }
+.card { border-color: #e5e7eb; box-shadow: 0 3px 12px rgba(0,0,0,0.04); }
+h1, h2, .intro { color: #172033; }
+.status { color: #167647; }
+
 </style>
 </head>
 <body><main>
-<h1>C and 8086 Assembly Programs</h1>
-<p class="intro">Based on your uploaded PDF. Each program has its own <strong>Copy Code</strong> button. Open this HTML file in Chrome or another modern browser, click the button, then paste into your editor or emulator.</p>
-
-    <section class="card">
+<section class="card">
       <header><h2>Question 1 — Convert decimal/hexadecimal to binary (Turbo C)</h2><button type="button" data-copy="code1">Copy Code</button></header>
       <pre><code id="code1">#include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
