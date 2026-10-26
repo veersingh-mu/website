@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>C and 8086 Programs — One-Click Copy</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:24px 14px;background:#f3f6fb;color:#172033;font-family:Arial,Helvetica,sans-serif}
+main{max-width:1000px;margin:auto}h1{font-size:27px;margin:0 0 8px}.intro{color:#566176;line-height:1.5;margin:0 0 22px}
+.card{background:#fff;border:1px solid #dce3ee;border-radius:13px;margin:18px 0;overflow:hidden;box-shadow:0 5px 18px #1720330a}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 17px;border-bottom:1px solid #e6ebf2}
+h2{font-size:16px;line-height:1.4;margin:0}button{background:#185adb;color:white;border:0;border-radius:8px;padding:10px 14px;font-weight:bold;cursor:pointer;white-space:nowrap}
+button:hover{background:#1047b5}button:focus-visible{outline:3px solid #91b4ff;outline-offset:2px}
+pre{margin:0;padding:17px;overflow:auto;background:#101827;color:#e8eef9;font:13px/1.55 Consolas,"Courier New",monospace;tab-size:4}
+.status{min-height:17px;margin:0;padding:0 17px 10px;color:#167647;font-size:13px}
+@media(max-width:600px){body{padding:16px 9px}h1{font-size:23px}header{align-items:flex-start;padding:12px}h2{font-size:14px}button{padding:9px 10px}pre{padding:13px;font-size:12px}}
+</style>
+</head>
+<body><main>
+<h1>C and 8086 Assembly Programs</h1>
+<p class="intro">Based on your uploaded PDF. Each program has its own <strong>Copy Code</strong> button. Open this HTML file in Chrome or another modern browser, click the button, then paste into your editor or emulator.</p>
+
+    <section class="card">
+      <header><h2>Question 1 — Convert decimal/hexadecimal to binary (Turbo C)</h2><button type="button" data-copy="code1">Copy Code</button></header>
+      <pre><code id="code1">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    unsigned long num;
+    int base, i = 0, j;
+    char bin[33];
+
+    clrscr();
+    printf(&quot;Enter base (10=decimal, 16=hex): &quot;);
+    scanf(&quot;%d&quot;, &amp;base);
+
+    if (base == 10)
+    {
+        printf(&quot;Enter decimal number: &quot;);
+        scanf(&quot;%lu&quot;, &amp;num);
+    }
+    else if (base == 16)
+    {
+        printf(&quot;Enter hexadecimal number (without 0x): &quot;);
+        scanf(&quot;%lx&quot;, &amp;num);
+    }
+    else
+    {
+        printf(&quot;Invalid base!&quot;);
+        getch();
+        return;
+    }
+
+    if (num == 0)
+        bin[i++] = &#x27;0&#x27;;
+
+    while (num &gt; 0 &amp;&amp; i &lt; 32)
+    {
+        bin[i++] = (num % 2) + &#x27;0&#x27;;
+        num = num / 2;
+    }
+
+    printf(&quot;\\nBinary number: &quot;);
+    for (j = i - 1; j &gt;= 0; j--)
+        printf(&quot;%c&quot;, bin[j]);
+
+    getch();
+}</code></pre>
+      <p class="status" id="status1" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>Question 2 — 2&#x27;s complement of an 8-bit number (Turbo C)</h2><button type="button" data-copy="code2">Copy Code</button></header>
+      <pre><code id="code2">#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+
+void main()
+{
+    unsigned int num, result;
+    int i;
+
+    clrscr();
+    printf(&quot;Enter an 8-bit number (0-255): &quot;);
+    scanf(&quot;%u&quot;, &amp;num);
+
+    if (num &gt; 255)
+    {
+        printf(&quot;Invalid input!&quot;);
+        getch();
+        return;
+    }
+
+    result = ((~num) &amp; 0xFF) + 1;
+    result = result &amp; 0xFF;
+
+    printf(&quot;\\nOriginal binary: &quot;);
+    for (i = 7; i &gt;= 0; i--)
+        printf(&quot;%d&quot;, (num &gt;&gt; i) &amp; 1);
+
+    printf(&quot;\\n2&#x27;s complement: &quot;);
+    for (i = 7; i &gt;= 0; i--)
+        printf(&quot;%d&quot;, (result &gt;&gt; i) &amp; 1);
+
+    printf(&quot;\\nUnsigned result: %u&quot;, result);
+    getch();
+}</code></pre>
+      <p class="status" id="status2" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>Question 3 — 8086 arithmetic operations on 8-bit data</h2><button type="button" data-copy="code3">Copy Code</button></header>
+      <pre><code id="code3">.MODEL SMALL
+.STACK 100H
+.DATA
+    NUM1 DB 25
+    NUM2 DB 5
+    SUM  DB ?
+    DIFF DB ?
+    PROD DW ?
+    QUOT DB ?
+    REM  DB ?
+.CODE
+MAIN PROC
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV AL, NUM1
+    ADD AL, NUM2
+    MOV SUM, AL
+
+    MOV AL, NUM1
+    SUB AL, NUM2
+    MOV DIFF, AL
+
+    MOV AL, NUM1
+    MOV BL, NUM2
+    MUL BL
+    MOV PROD, AX
+
+    MOV AL, NUM1
+    MOV AH, 00H
+    MOV BL, NUM2
+    DIV BL
+    MOV QUOT, AL
+    MOV REM, AH
+
+    MOV AH, 4CH
+    INT 21H
+MAIN ENDP
+END MAIN</code></pre>
+      <p class="status" id="status3" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>Question 4 — 8086 logical operations on 8-bit data</h2><button type="button" data-copy="code4">Copy Code</button></header>
+      <pre><code id="code4">.MODEL SMALL
+.STACK 100H
+.DATA
+    NUM1 DB 5AH
+    NUM2 DB 3CH
+    ANDRES DB ?
+    ORRES  DB ?
+    XORRES DB ?
+    NOTRES DB ?
+.CODE
+MAIN PROC
+    MOV AX, @DATA
+    MOV DS, AX
+
+    MOV AL, NUM1
+    AND AL, NUM2
+    MOV ANDRES, AL
+
+    MOV AL, NUM1
+    OR AL, NUM2
+    MOV ORRES, AL
+
+    MOV AL, NUM1
+    XOR AL, NUM2
+    MOV XORRES, AL
+
+    MOV AL, NUM1
+    NOT AL
+    MOV NOTRES, AL
+
+    MOV AH, 4CH
+    INT 21H
+MAIN ENDP
+END MAIN</code></pre>
+      <p class="status" id="status4" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>Question 5 — Draw a square using INT 10H</h2><button type="button" data-copy="code5">Copy Code</button></header>
+      <pre><code id="code5">org 100h
+
+    mov ax, 0012h
+    int 10h
+
+    mov cx, 0060h
+    mov dx, 0060h
+    mov si, 96
+L1:
+    mov ah, 0Ch
+    mov al, 0Fh
+    mov bh, 00h
+    int 10h
+    inc cx
+    dec si
+    jnz L1
+
+    mov cx, 00BFh
+    mov dx, 0060h
+    mov si, 96
+L2:
+    mov ah, 0Ch
+    mov al, 0Fh
+    mov bh, 00h
+    int 10h
+    inc dx
+    dec si
+    jnz L2
+
+    mov cx, 00BFh
+    mov dx, 00BFh
+    mov si, 96
+L3:
+    mov ah, 0Ch
+    mov al, 0Fh
+    mov bh, 00h
+    int 10h
+    dec cx
+    dec si
+    jnz L3
+
+    mov cx, 0060h
+    mov dx, 00BFh
+    mov si, 96
+L4:
+    mov ah, 0Ch
+    mov al, 0Fh
+    mov bh, 00h
+    int 10h
+    dec dx
+    dec si
+    jnz L4
+
+    mov ah, 00h
+    int 16h
+
+    mov ax, 0003h
+    int 10h
+
+    ret</code></pre>
+      <p class="status" id="status5" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>Experiment 8 — Bubble sort 8-bit numbers in ascending order</h2><button type="button" data-copy="code6">Copy Code</button></header>
+      <pre><code id="code6">org 100h
+
+    jmp START
+
+ARR db 5, 2, 9, 1, 7, 6, 3, 8
+N equ 8
+
+START:
+    mov cx, N-1
+
+OUTER_LOOP:
+    push cx
+    lea si, ARR
+    mov cx, N-1
+
+INNER_LOOP:
+    mov al, [si]
+    mov ah, [si+1]
+    cmp al, ah
+    jbe NO_SWAP
+    mov [si], ah
+    mov [si+1], al
+
+NO_SWAP:
+    inc si
+    loop INNER_LOOP
+
+    pop cx
+    loop OUTER_LOOP
+
+    lea si, ARR
+    mov cx, N
+
+PRINT_LOOP:
+    mov dl, [si]
+    add dl, &#x27;0&#x27;
+    mov ah, 02h
+    int 21h
+
+    mov dl, &#x27; &#x27;
+    mov ah, 02h
+    int 21h
+
+    inc si
+    loop PRINT_LOOP
+
+    mov ah, 4Ch
+    int 21h
+
+ret</code></pre>
+      <p class="status" id="status6" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>Experiment 10 — Display uppercase and lowercase alphabets using INT 21H</h2><button type="button" data-copy="code7">Copy Code</button></header>
+      <pre><code id="code7">org 100h
+
+mov ah, 02h
+mov cx, 26
+mov dl, &#x27;A&#x27;
+
+L1:
+    int 21h
+    inc dl
+    dec cx
+    jnz L1
+
+mov dl, 0Dh
+int 21h
+mov dl, 0Ah
+int 21h
+
+mov ah, 02h
+mov cx, 26
+mov dl, &#x27;a&#x27;
+
+L2:
+    int 21h
+    inc dl
+    dec cx
+    jnz L2
+
+ret</code></pre>
+      <p class="status" id="status7" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>VS Code / Online Compiler — Question 1: Decimal or hexadecimal to binary (Standard C)</h2><button type="button" data-copy="code8">Copy Code</button></header>
+      <pre><code id="code8">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+
+int main(void)
+{
+    unsigned long number;
+    char input[100];
+    char *end;
+    int base, i = 0, j;
+    char binary[sizeof(unsigned long) * 8 + 1];
+
+    printf("Choose input type (10 = decimal, 16 = hexadecimal): ");
+    if (scanf("%d", &amp;base) != 1 || (base != 10 &amp;&amp; base != 16)) {
+        printf("Invalid base. Choose 10 or 16.\\n");
+        return 1;
+    }
+
+    printf("Enter the number: ");
+    if (scanf("%99s", input) != 1) {
+        printf("Invalid input.\\n");
+        return 1;
+    }
+
+    errno = 0;
+    number = strtoul(input, &amp;end, base);
+    if (errno != 0 || end == input || *end != '\\0') {
+        printf("Invalid number.\\n");
+        return 1;
+    }
+
+    if (number == 0) {
+        binary[i++] = '0';
+    } else {
+        while (number &gt; 0) {
+            binary[i++] = (char)('0' + (number % 2));
+            number /= 2;
+        }
+    }
+    binary[i] = '\\0';
+
+    printf("Binary number: ");
+    for (j = i - 1; j &gt;= 0; j--) {
+        putchar(binary[j]);
+    }
+    putchar('\\n');
+
+    return 0;
+}</code></pre>
+      <p class="status" id="status8" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <header><h2>VS Code / Online Compiler — Question 2: 8-bit two's complement (Standard C)</h2><button type="button" data-copy="code9">Copy Code</button></header>
+      <pre><code id="code9">#include &lt;stdio.h&gt;
+
+int main(void)
+{
+    unsigned int number, result;
+    int i;
+
+    printf("Enter an 8-bit number (0-255): ");
+    if (scanf("%u", &amp;number) != 1 || number &gt; 255) {
+        printf("Invalid input. Enter a number from 0 to 255.\\n");
+        return 1;
+    }
+
+    result = ((~number) &amp; 0xFFu) + 1u;
+    result &amp;= 0xFFu;
+
+    printf("Original binary: ");
+    for (i = 7; i &gt;= 0; i--) {
+        printf("%u", (number &gt;&gt; i) &amp; 1u);
+    }
+
+    printf("\\n2's complement: ");
+    for (i = 7; i &gt;= 0; i--) {
+        printf("%u", (result &gt;&gt; i) &amp; 1u);
+    }
+
+    printf("\\nUnsigned 8-bit result: %u\\n", result);
+    return 0;
+}</code></pre>
+      <p class="status" id="status9" aria-live="polite"></p>
+    </section>
+
+</main>
+<script>
+document.querySelectorAll("button[data-copy]").forEach(function(button){
+  button.addEventListener("click", async function(){
+    var code = document.getElementById(button.dataset.copy).textContent;
+    var n = button.dataset.copy.replace("code", "");
+    var status = document.getElementById("status" + n);
+    try {
+      await navigator.clipboard.writeText(code);
+      button.textContent = "Copied!";
+      status.textContent = "Code copied to clipboard.";
+      setTimeout(function(){button.textContent="Copy Code";},1500);
+    } catch (e) {
+      var range = document.createRange();
+      range.selectNodeContents(document.getElementById(button.dataset.copy));
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = "Browser blocked automatic copy. Code is selected; press Ctrl+C.";
+    }
+  });
+});
+</script></body></html>
