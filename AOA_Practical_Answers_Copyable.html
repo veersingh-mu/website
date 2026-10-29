@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AOA Practical Viva Answers</title>
+<meta name="description" content="AOA practical viva answers with copyable theory, algorithms and C programs.">
+<style>
+:root{--ink:#333;--muted:#333;--navy:#333;--blue:#333;--line:#d8e2e9;--paper:#fff;--bg:#eef3f6;--soft:#f5f8fa;--accent:#d9edf4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Segoe UI",Arial,sans-serif}
+nav{max-width:1000px;margin:18px auto 0;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px}nav a{display:inline-block;text-decoration:none;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.9rem}
+main{max-width:1000px;margin:18px auto 56px;padding:0 20px}.experiment{background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:24px;margin:18px 0;box-shadow:0 5px 18px rgba(20,50,75,.05);scroll-margin-top:16px}.exp-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:14px}.exp-num{color:#444;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem}.exp-head h2{font-size:1.1rem;line-height:1.35;color:#444;margin:0}
+.block{margin:18px 0}.block-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:7px}.block h3{margin:0;color:#333;font-size:1rem}.content{border-radius:9px}.copy-btn{border:1px solid #bdd0dd;background:#fff;color:#333;border-radius:7px;padding:6px 10px;font:600 .82rem "Segoe UI",Arial,sans-serif;cursor:pointer;white-space:nowrap}.copy-btn:hover{background:var(--accent)}.copy-btn:focus-visible{outline:3px solid #80bfd0;outline-offset:2px}.copy-status{font-size:.78rem;color:#333;min-width:45px}
+.text-content p{margin:0 0 8px}.text-content p:last-child{margin-bottom:0}.text-content ul{margin:4px 0 0;padding-left:22px}.text-content li{margin:4px 0}.algorithm{padding:8px 12px;background:var(--soft);border:1px solid var(--line)}.alg-line{margin:3px 0}.alg-line.level-1{margin-left:22px}.alg-line.level-1::before{content:"•";display:inline-block;width:18px;margin-left:-18px;color:var(--navy)}.alg-line.level-2{margin-left:45px}.alg-line.level-2::before{content:"-";display:inline-block;width:18px;margin-left:-18px;color:var(--muted)}.alg-line.level-3{margin-left:68px}.alg-line.level-3::before{content:"-";display:inline-block;width:18px;margin-left:-18px;color:var(--muted)}
+pre{margin:0;overflow:auto;white-space:pre;background:#f3f6f8;border:1px solid var(--line);border-radius:9px;padding:14px;color:#17232d;font:13px/1.45 Consolas,"Courier New",monospace;tab-size:4}.output pre{font-size:12px}.code pre{display:none}.copy-only .content{display:none}.copy-only .block-head{justify-content:flex-end;margin-bottom:0}.theory-copy{padding:12px 14px;background:var(--soft);border:1px solid var(--line)}.conclusion{padding:10px 14px;background:#fbfcfd;border-left:3px solid #9ab5c7}.foot{max-width:1000px;margin:0 auto 30px;padding:0 20px;color:var(--muted);font-size:.85rem}
+@media(max-width:600px){nav{padding:0 16px}main{padding:0 12px}.experiment{padding:17px 14px}.block-head{align-items:flex-start}pre{font-size:12px}}
+</style></head><body>
+<nav aria-label="Jump to experiment"><a href="#exp-1">1. Insertion Sort and Comparative Analysis</a><a href="#exp-2">2. Selection Sort and Comparative Analysis</a><a href="#exp-3">3. Binary Search Using Divide and Conquer</a><a href="#exp-4">4. Minimum and Maximum Using Divide and Conquer</a><a href="#exp-5">5. Naive String Matching Algorithm</a><a href="#exp-6">6. Sum of Subsets Using Backtracking</a><a href="#exp-7">7. Fractional Knapsack Using Greedy Method</a></nav>
+<main><article class="experiment" id="exp-1"><div class="exp-head"><span class="exp-num">Experiment 01</span><h2>Insertion Sort and Comparative Analysis</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-1" data-copy-text="Insertion Sort builds a sorted part of the array one item at a time by shifting larger values and inserting the next item in its correct position. Best case is O(n); average and worst cases are O(n^2). It is stable and uses O(1) extra space.">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-1" class="content"><p>Insertion Sort builds a sorted part of the array one item at a time by shifting larger values and inserting the next item in its correct position. Best case is O(n); average and worst cases are O(n^2). It is stable and uses O(1) extra space.</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-1" data-copy-text="Start&#10;Declare an array a[50] and variables n, i, j, key.&#10;Read the number of elements n.&#10;Read n elements into the array.&#10;Set j = 1 and repeat while j &lt; n:&#10;  Store a[j] in key.&#10;  Set i = j - 1.&#10;  Compare the key with the previous elements.&#10;  While i &gt;= 0 and a[i] &gt; key:&#10;    Shift a[i] one position to the right.&#10;    Decrease i by 1.&#10;  Insert key at position i + 1.&#10;  Increment j.&#10;Display the sorted array.&#10;Stop.">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-1" class="content"><div class="alg-line level-0">Start</div><div class="alg-line level-0">Declare an array a[50] and variables n, i, j, key.</div><div class="alg-line level-0">Read the number of elements n.</div><div class="alg-line level-0">Read n elements into the array.</div><div class="alg-line level-0">Set j = 1 and repeat while j &lt; n:</div><div class="alg-line level-1">Store a[j] in key.</div><div class="alg-line level-1">Set i = j - 1.</div><div class="alg-line level-1">Compare the key with the previous elements.</div><div class="alg-line level-1">While i &gt;= 0 and a[i] &gt; key:</div><div class="alg-line level-2">Shift a[i] one position to the right.</div><div class="alg-line level-2">Decrease i by 1.</div><div class="alg-line level-1">Insert key at position i + 1.</div><div class="alg-line level-1">Increment j.</div><div class="alg-line level-0">Display the sorted array.</div><div class="alg-line level-0">Stop.</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-1">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-1" class="content"><pre>#include &lt;stdio.h&gt;
+int main() {
+int a[50],n,i,j,key;
+printf(&quot;Enter the number elements: &quot;);
+scanf(&quot;%d&quot;,&amp;n);
+printf(&quot;Enter the elements: \n&quot;);
+for(i=0;i&lt;n;i++) {
+scanf(&quot;%d&quot;,&amp;a[i]);
+}
+for(j=1;j&lt;n;j++) {
+key=a[j];
+i=j-1;{
+while(i&gt;=0&amp;&amp; a[i]&gt;key)
+{
+a[i+1]=a[i];
+i=i-1;
+}
+a[i+1]=key;
+}}
+printf(&quot;Sorted Array: \n&quot;);
+for(i=0;i&lt;n;i++)
+{
+printf(&quot;%d\n&quot;,a[i]);
+}
+return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-1" data-copy-text="Insertion Sort takes O(n) time in the best case and O(n^2) in average and worst cases.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-1" class="content"><p>Insertion Sort takes O(n) time in the best case and O(n^2) in average and worst cases.</p></div></section></article><article class="experiment" id="exp-2"><div class="exp-head"><span class="exp-num">Experiment 02</span><h2>Selection Sort and Comparative Analysis</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-2" data-copy-text="Selection Sort repeatedly finds the smallest value in the unsorted part and swaps it into place. It performs O(n^2) comparisons in all cases, uses O(1) extra space, and is usually not stable.">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-2" class="content"><p>Selection Sort repeatedly finds the smallest value in the unsorted part and swaps it into place. It performs O(n^2) comparisons in all cases, uses O(1) extra space, and is usually not stable.</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-2" data-copy-text="Start&#10;Declare variables i, j, n, min, temp and an array a[10].&#10;Read the number of elements n.&#10;Read n elements into the array.&#10;Set i = 0 and repeat until i = n - 2:&#10;  Assume the current position i contains the minimum element: min = i.&#10;  Set j = i + 1.&#10;  Compare a[j] with a[min] for all remaining elements:&#10;    If a[j] &lt; a[min], set min = j.&#10;  If min != i, swap a[i] and a[min].&#10;Repeat the above process for all positions in the array.&#10;Display the sorted array.&#10;Stop.">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-2" class="content"><div class="alg-line level-0">Start</div><div class="alg-line level-0">Declare variables i, j, n, min, temp and an array a[10].</div><div class="alg-line level-0">Read the number of elements n.</div><div class="alg-line level-0">Read n elements into the array.</div><div class="alg-line level-0">Set i = 0 and repeat until i = n - 2:</div><div class="alg-line level-1">Assume the current position i contains the minimum element: min = i.</div><div class="alg-line level-1">Set j = i + 1.</div><div class="alg-line level-1">Compare a[j] with a[min] for all remaining elements:</div><div class="alg-line level-2">If a[j] &lt; a[min], set min = j.</div><div class="alg-line level-1">If min != i, swap a[i] and a[min].</div><div class="alg-line level-0">Repeat the above process for all positions in the array.</div><div class="alg-line level-0">Display the sorted array.</div><div class="alg-line level-0">Stop.</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-2">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-2" class="content"><pre>#include &lt;stdio.h&gt;
+int main()
+{
+int i,j,n,min,a[10],temp;
+printf(&quot;Enter the number of elements: &quot;);
+scanf(&quot;%d&quot;,&amp;n);
+printf(&quot;Enter the array: \n&quot;);
+for(i=0;i&lt;n;i++){
+scanf(&quot;%d&quot;,&amp;a[i]);
+}
+for(i=0;i&lt;=n-2;i++)
+{
+min=i;
+for (j=i+1;j&lt;=n-1;j++)
+{
+if (a[j]&lt;a[min])
+min=j;
+}
+if(min!=i)
+{
+temp=a[i];
+a[i]=a[min];
+a[min]=temp;
+}}
+printf(&quot;Sorted Array: \n&quot;);
+for(i=0;i&lt;n;i++)
+{
+printf(&quot;%d\n&quot;,a[i]);
+}
+return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-2" data-copy-text="Selection Sort takes O(n^2) time in the best, average, and worst cases.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-2" class="content"><p>Selection Sort takes O(n^2) time in the best, average, and worst cases.</p></div></section></article><article class="experiment" id="exp-3"><div class="exp-head"><span class="exp-num">Experiment 03</span><h2>Binary Search Using Divide and Conquer</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-3" data-copy-text="Binary Search works on a sorted array by checking the middle element and discarding half of the remaining range. Its best case is O(1), and its average and worst cases are O(log n).">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-3" class="content"><p>Binary Search works on a sorted array by checking the middle element and discarding half of the remaining range. Its best case is O(1), and its average and worst cases are O(log n).</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-3" data-copy-text="Start&#10;Read the number of elements n.&#10;Read the n elements into array a[].&#10;Read the element key to be searched.&#10;Set:&#10;  lb = 0 (lower bound)&#10;  ub = n - 1 (upper bound)&#10;Call recBinarySearch(a, ub, lb, key).&#10;In the recursive function:&#10;  If lb == ub:&#10;    If a[lb] == key, return lb.&#10;    Otherwise, return -1.&#10;  Calculate mid = (ub + lb) / 2.&#10;  If a[mid] == key, return mid.&#10;  If key &lt; a[mid], recursively search the left half:&#10;    recBinarySearch(a, mid - 1, lb, key)&#10;  Otherwise, recursively search the right half:&#10;    recBinarySearch(a, ub, mid + 1, key)&#10;If the returned index is not -1, display &quot;Element found&quot; and its index.&#10;Otherwise, display &quot;Element not found&quot;.&#10;Stop">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-3" class="content"><div class="alg-line level-0">Start</div><div class="alg-line level-0">Read the number of elements n.</div><div class="alg-line level-0">Read the n elements into array a[].</div><div class="alg-line level-0">Read the element key to be searched.</div><div class="alg-line level-0">Set:</div><div class="alg-line level-1">lb = 0 (lower bound)</div><div class="alg-line level-1">ub = n - 1 (upper bound)</div><div class="alg-line level-0">Call recBinarySearch(a, ub, lb, key).</div><div class="alg-line level-0">In the recursive function:</div><div class="alg-line level-1">If lb == ub:</div><div class="alg-line level-2">If a[lb] == key, return lb.</div><div class="alg-line level-2">Otherwise, return -1.</div><div class="alg-line level-1">Calculate mid = (ub + lb) / 2.</div><div class="alg-line level-1">If a[mid] == key, return mid.</div><div class="alg-line level-1">If key &lt; a[mid], recursively search the left half:</div><div class="alg-line level-2">recBinarySearch(a, mid - 1, lb, key)</div><div class="alg-line level-1">Otherwise, recursively search the right half:</div><div class="alg-line level-2">recBinarySearch(a, ub, mid + 1, key)</div><div class="alg-line level-0">If the returned index is not -1, display &quot;Element found&quot; and its index.</div><div class="alg-line level-0">Otherwise, display &quot;Element not found&quot;.</div><div class="alg-line level-0">Stop</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-3">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-3" class="content"><pre>#include &lt;stdio.h&gt;
+
+int recBinarySearch(int a[], int ub, int lb, int key) {
+    if (lb &gt; ub) {
+        return -1;
+    }
+    int mid = (ub + lb) / 2;
+    if (a[mid] == key) {
+        return mid;
+    }
+    if (key &lt; a[mid]) {
+        return recBinarySearch(a, mid - 1, lb, key);
+    }
+    return recBinarySearch(a, ub, mid + 1, key);
+}
+
+int main() {
+    int a[100], n, key;
+    printf(&quot;Enter the number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    if (n &lt;= 0 || n &gt; 100) {
+        printf(&quot;Invalid number of elements.\n&quot;);
+        return 0;
+    }
+    printf(&quot;Enter the sorted elements: &quot;);
+    for (int i = 0; i &lt; n; i++) {
+        scanf(&quot;%d&quot;, &amp;a[i]);
+    }
+    printf(&quot;Enter the element to be searched: &quot;);
+    scanf(&quot;%d&quot;, &amp;key);
+    int index = recBinarySearch(a, n - 1, 0, key);
+    if (index != -1) {
+        printf(&quot;Element found at index %d\n&quot;, index);
+    } else {
+        printf(&quot;Element not found\n&quot;);
+    }
+    return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-3" data-copy-text="Binary Search takes O(log n) time on a sorted array, with O(1) best-case time.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-3" class="content"><p>Binary Search takes O(log n) time on a sorted array, with O(1) best-case time.</p></div></section></article><article class="experiment" id="exp-4"><div class="exp-head"><span class="exp-num">Experiment 04</span><h2>Minimum and Maximum Using Divide and Conquer</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-4" data-copy-text="Divide and Conquer finds the minimum and maximum in each half, then combines the results. It takes O(n) time and O(log n) recursion space for balanced divisions.">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-4" class="content"><p>Divide and Conquer finds the minimum and maximum in each half, then combines the results. It takes O(n) time and O(log n) recursion space for balanced divisions.</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-4" data-copy-text="Function MinMax(a, low, high)&#10;  If low == high, return a[low] as both minimum and maximum.&#10;  If high == low + 1:&#10;    Compare a[low] and a[high].&#10;    Return the smaller value as minimum and the larger value as maximum.&#10;  Calculate mid = (low + high) / 2.&#10;  Set (min1, max1) = MinMax(a, low, mid).&#10;  Set (min2, max2) = MinMax(a, mid + 1, high).&#10;  Set minimum = smaller of min1 and min2.&#10;  Set maximum = larger of max1 and max2.&#10;  Return (minimum, maximum).&#10;Main Algorithm&#10;Start.&#10;Read n and the array elements.&#10;Call MinMax(a, 0, n - 1).&#10;Display the minimum and maximum values.&#10;Stop.">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-4" class="content"><div class="alg-line level-0">Function MinMax(a, low, high)</div><div class="alg-line level-1">If low == high, return a[low] as both minimum and maximum.</div><div class="alg-line level-1">If high == low + 1:</div><div class="alg-line level-2">Compare a[low] and a[high].</div><div class="alg-line level-2">Return the smaller value as minimum and the larger value as maximum.</div><div class="alg-line level-1">Calculate mid = (low + high) / 2.</div><div class="alg-line level-1">Set (min1, max1) = MinMax(a, low, mid).</div><div class="alg-line level-1">Set (min2, max2) = MinMax(a, mid + 1, high).</div><div class="alg-line level-1">Set minimum = smaller of min1 and min2.</div><div class="alg-line level-1">Set maximum = larger of max1 and max2.</div><div class="alg-line level-1">Return (minimum, maximum).</div><div class="alg-line level-0">Main Algorithm</div><div class="alg-line level-0">Start.</div><div class="alg-line level-0">Read n and the array elements.</div><div class="alg-line level-0">Call MinMax(a, 0, n - 1).</div><div class="alg-line level-0">Display the minimum and maximum values.</div><div class="alg-line level-0">Stop.</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-4">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-4" class="content"><pre>#include &lt;stdio.h&gt;
+
+struct MinMax {
+    int minimum;
+    int maximum;
+    int comparisons;
+};
+
+struct MinMax findMinMax(int a[], int low, int high) {
+    struct MinMax result;
+    if (low == high) {
+        result.minimum = a[low];
+        result.maximum = a[low];
+        result.comparisons = 0;
+        return result;
+    }
+    if (high == low + 1) {
+        result.comparisons = 1;
+        if (a[low] &lt; a[high]) {
+            result.minimum = a[low];
+            result.maximum = a[high];
+        } else {
+            result.minimum = a[high];
+            result.maximum = a[low];
+        }
+        return result;
+    }
+    int mid = low + (high - low) / 2;
+    struct MinMax left = findMinMax(a, low, mid);
+    struct MinMax right = findMinMax(a, mid + 1, high);
+    result.comparisons = left.comparisons + right.comparisons;
+    if (left.minimum &lt; right.minimum) result.minimum = left.minimum;
+    else result.minimum = right.minimum;
+    result.comparisons++;
+    if (left.maximum &gt; right.maximum) result.maximum = left.maximum;
+    else result.maximum = right.maximum;
+    result.comparisons++;
+    return result;
+}
+
+int main() {
+    int a[100], n;
+    printf(&quot;Enter the number of elements: &quot;);
+    scanf(&quot;%d&quot;, &amp;n);
+    if (n &lt;= 0 || n &gt; 100) {
+        printf(&quot;Enter a value of n from 1 to 100.\n&quot;);
+        return 0;
+    }
+    printf(&quot;Enter the elements: &quot;);
+    for (int i = 0; i &lt; n; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+    struct MinMax answer = findMinMax(a, 0, n - 1);
+    printf(&quot;Minimum element: %d\n&quot;, answer.minimum);
+    printf(&quot;Maximum element: %d\n&quot;, answer.maximum);
+    printf(&quot;Number of comparisons: %d\n&quot;, answer.comparisons);
+    return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-4" data-copy-text="The Divide and Conquer method finds both values in O(n) time.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-4" class="content"><p>The Divide and Conquer method finds both values in O(n) time.</p></div></section></article><article class="experiment" id="exp-5"><div class="exp-head"><span class="exp-num">Experiment 05</span><h2>Naive String Matching Algorithm</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-5" data-copy-text="Naive String Matching checks the pattern at every possible position in the text. Its worst-case time is O(nm), where n is the text length and m is the pattern length; extra space is O(1), excluding output.">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-5" class="content"><p>Naive String Matching checks the pattern at every possible position in the text. Its worst-case time is O(nm), where n is the text length and m is the pattern length; extra space is O(1), excluding output.</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-5" data-copy-text="Start.&#10;Read the text T and the pattern P.&#10;Let n be the text length and m be the pattern length.&#10;For every shift s from 0 through n - m:&#10;  Compare the pattern with the text starting at T[s].&#10;  If any character differs, stop that comparison and try the next shift.&#10;  If all m characters match, display the shift s.&#10;Continue until all valid shifts have been checked.&#10;Stop.">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-5" class="content"><div class="alg-line level-0">Start.</div><div class="alg-line level-0">Read the text T and the pattern P.</div><div class="alg-line level-0">Let n be the text length and m be the pattern length.</div><div class="alg-line level-0">For every shift s from 0 through n - m:</div><div class="alg-line level-1">Compare the pattern with the text starting at T[s].</div><div class="alg-line level-1">If any character differs, stop that comparison and try the next shift.</div><div class="alg-line level-1">If all m characters match, display the shift s.</div><div class="alg-line level-0">Continue until all valid shifts have been checked.</div><div class="alg-line level-0">Stop.</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-5">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-5" class="content"><pre>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+void naiveStringMatch(char* T, char* P) {
+int n = strlen(T);
+int m = strlen(P);
+for (int s = 0; s &lt;= n - m; s++) {
+int j;
+for (j = 0; j &lt; m; j++) {
+if (T[s + j] != P[j]) {
+break;
+}
+}
+if (j == m) {
+printf(&quot;Pattern occurs at shift %d\n&quot;, s);
+}
+}
+}
+int main() {
+char T[] = &quot;AABAACAADAABAABA&quot;;
+char P[] = &quot;AABA&quot;;
+naiveStringMatch(T, P);
+return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-5" data-copy-text="Naive String Matching has O(nm) worst-case time.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-5" class="content"><p>Naive String Matching has O(nm) worst-case time.</p></div></section></article><article class="experiment" id="exp-6"><div class="exp-head"><span class="exp-num">Experiment 06</span><h2>Sum of Subsets Using Backtracking</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-6" data-copy-text="Backtracking tries including or excluding each item and stops exploring branches that cannot reach the target. Its worst-case time is O(2^n) and recursion space is O(n); pruning assumes non-negative values.">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-6" class="content"><p>Backtracking tries including or excluding each item and stops exploring branches that cannot reach the target. Its worst-case time is O(2^n) and recursion space is O(n); pruning assumes non-negative values.</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-6" data-copy-text="SumOfSubsets(i, currentSum)&#10;  If currentSum == target:&#10;    Print the selected subset.&#10;    Return.&#10;  If i == n OR currentSum &gt; target:&#10;    Return.&#10;  Include A[i].&#10;    Mark A[i] as selected.&#10;    SumOfSubsets(i + 1, currentSum + A[i])&#10;  Exclude A[i].&#10;    Unmark A[i].&#10;    SumOfSubsets(i + 1, currentSum)">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-6" class="content"><div class="alg-line level-0">SumOfSubsets(i, currentSum)</div><div class="alg-line level-1">If currentSum == target:</div><div class="alg-line level-2">Print the selected subset.</div><div class="alg-line level-2">Return.</div><div class="alg-line level-1">If i == n OR currentSum &gt; target:</div><div class="alg-line level-2">Return.</div><div class="alg-line level-1">Include A[i].</div><div class="alg-line level-2">Mark A[i] as selected.</div><div class="alg-line level-2">SumOfSubsets(i + 1, currentSum + A[i])</div><div class="alg-line level-1">Exclude A[i].</div><div class="alg-line level-2">Unmark A[i].</div><div class="alg-line level-2">SumOfSubsets(i + 1, currentSum)</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-6">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-6" class="content"><pre>#include &lt;stdio.h&gt;
+void SumOfSubsets(int A[], int selected[], int n, int target, int i, int currentSum) {
+if (currentSum == target) {
+for (int j = 0; j &lt; i; j++) {
+if (selected[j]) {
+printf(&quot;%d &quot;, A[j]);
+}
+}
+printf(&quot;\n&quot;);
+return;
+}
+if (i == n || currentSum &gt; target) {
+return;
+}
+selected[i] = 1;
+SumOfSubsets(A, selected, n, target, i + 1, currentSum + A[i]);
+selected[i] = 0;
+SumOfSubsets(A, selected, n, target, i + 1, currentSum);
+}
+int main() {
+int A[] = {10, 7, 5, 18, 12, 20, 15};
+int target = 35;
+int n = sizeof(A) / sizeof(A[0]);
+int selected[100] = {0};
+SumOfSubsets(A, selected, n, target, 0, 0);
+return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-6" data-copy-text="Backtracking can find all target-sum subsets; pruning avoids branches that cannot reach the target.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-6" class="content"><p>Backtracking can find all target-sum subsets; pruning avoids branches that cannot reach the target.</p></div></section></article><article class="experiment" id="exp-7"><div class="exp-head"><span class="exp-num">Experiment 07</span><h2>Fractional Knapsack Using Greedy Method</h2></div><section class="block text-content theory-copy copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy theory" data-copy-target="theory-7" data-copy-text="Fractional Knapsack sorts items by value-to-weight ratio and takes the highest-ratio items first, allowing fractions. This greedy method is optimal for fractional items and takes O(n log n) time because of sorting.">Copy Theory</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="theory-7" class="content"><p>Fractional Knapsack sorts items by value-to-weight ratio and takes the highest-ratio items first, allowing fractions. This greedy method is optimal for fractional items and takes O(n log n) time because of sorting.</p></div></section><section class="block algorithm copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy algorithm" data-copy-target="algorithm-7" data-copy-text="Function GreedyKnapsack(weights, values, capacity):&#10;  n = length(weights)&#10;  for i = 0 to n-1:&#10;    ratio[i] = values[i] / weights[i]&#10;  sort items by ratio in descending order&#10;  total_value = 0&#10;  for i = 0 to n-1:&#10;    if capacity == 0:&#10;      break&#10;    if item weight &lt;= capacity:&#10;      take full item&#10;      total_value += values[i]&#10;      capacity -= weights[i]&#10;    else:&#10;      take fraction of item&#10;      total_value += (values[i] * (capacity / weights[i]))&#10;      capacity = 0&#10;  return total_value">Copy Algorithm</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="algorithm-7" class="content"><div class="alg-line level-0">Function GreedyKnapsack(weights, values, capacity):</div><div class="alg-line level-1">n = length(weights)</div><div class="alg-line level-1">for i = 0 to n-1:</div><div class="alg-line level-2">ratio[i] = values[i] / weights[i]</div><div class="alg-line level-1">sort items by ratio in descending order</div><div class="alg-line level-1">total_value = 0</div><div class="alg-line level-1">for i = 0 to n-1:</div><div class="alg-line level-2">if capacity == 0:</div><div class="alg-line level-3">break</div><div class="alg-line level-2">if item weight &lt;= capacity:</div><div class="alg-line level-3">take full item</div><div class="alg-line level-3">total_value += values[i]</div><div class="alg-line level-3">capacity -= weights[i]</div><div class="alg-line level-2">else:</div><div class="alg-line level-3">take fraction of item</div><div class="alg-line level-3">total_value += (values[i] * (capacity / weights[i]))</div><div class="alg-line level-3">capacity = 0</div><div class="alg-line level-1">return total_value</div></div></section><section class="block code copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy code" data-copy-target="code-7">Copy Code</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="code-7" class="content"><pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+struct Item {
+double weight;
+double value;
+};
+int compare(const void *a, const void *b) {
+struct Item *item1 = (struct Item *)a;
+struct Item *item2 = (struct Item *)b;
+double ratio1 = item1-&gt;value / item1-&gt;weight;
+double ratio2 = item2-&gt;value / item2-&gt;weight;
+if (ratio1 &lt; ratio2) return 1;
+else if (ratio1 &gt; ratio2) return -1;
+else return 0;
+}
+double GreedyKnapsack(struct Item items[], int n, double capacity) {
+qsort(items, n, sizeof(struct Item), compare);
+double total_value = 0.0;
+for (int i = 0; i &lt; n; i++) {
+if (capacity == 0) {
+break;
+}
+if (items[i].weight &lt;= capacity) {
+total_value += items[i].value;
+capacity -= items[i].weight;
+} else {
+total_value += (items[i].value * (capacity / items[i].weight));
+capacity = 0;
+}
+}
+return total_value;
+}
+int main() {
+struct Item items[] = {
+{10, 60},
+{20, 100},
+{30, 120}
+};
+int n = sizeof(items) / sizeof(items[0]);
+double capacity = 50.0;
+double max_value = GreedyKnapsack(items, n, capacity);
+printf(&quot;Maximum value we can obtain = %.2f\n&quot;, max_value);
+return 0;
+}</pre></div></section><section class="block conclusion text-content copy-only"><div class="block-head"><div><button class="copy-btn" aria-label="Copy conclusion" data-copy-target="conclusion-7" data-copy-text="The greedy method is optimal for Fractional Knapsack and takes O(n log n) time.">Copy Conclusion</button> <span class="copy-status" aria-live="polite"></span></div></div><div id="conclusion-7" class="content"><p>The greedy method is optimal for Fractional Knapsack and takes O(n log n) time.</p></div></section></article></main>
+<p class="foot">Copy buttons copy the selected section only. The C code is shown separately for each experiment.</p>
+<script>
+document.addEventListener('click', async (event) => {
+  const button = event.target.closest('[data-copy-target]');
+  if (!button) return;
+  const target = document.getElementById(button.dataset.copyTarget);
+  if (!target) return;
+  const codeOrOutput = target.querySelector('pre');
+  const value = button.dataset.copyText || (codeOrOutput ? codeOrOutput.textContent : target.innerText);
+  const status = button.parentElement.querySelector('.copy-status');
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(value);
+    } else {
+      const field = document.createElement('textarea');
+      field.value = value; field.setAttribute('readonly','');
+      field.style.position = 'fixed'; field.style.left = '-9999px';
+      document.body.appendChild(field); field.select();
+      const ok = document.execCommand('copy'); field.remove();
+      if (!ok) throw new Error('Copy failed');
+    }
+    status.textContent = 'Copied';
+    const original = button.textContent;
+    button.textContent = 'Copied!';
+    window.setTimeout(() => { button.textContent = original; status.textContent = ''; }, 1500);
+  } catch (error) {
+    status.textContent = 'Copy failed';
+    window.setTimeout(() => { status.textContent = ''; }, 2200);
+  }
+});
+</script>
+</body></html>

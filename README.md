@@ -1,3 +1,3 @@
 # website
 
-C and 8086 Assembly Programs repository with one-click copy web interface.
+AOA Practical Viva Answers with copyable theory, algorithms, and C programs with a one-click copy web interface.
